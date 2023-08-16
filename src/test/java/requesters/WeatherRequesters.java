@@ -20,3 +20,4 @@ public class WeatherRequesters {
         return objectMapper.readValue(jsonToParse, WeatherResponse.class);
     }
 }
+
