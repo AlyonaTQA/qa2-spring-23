@@ -1,6 +1,7 @@
 package pages;
 
-import modal.ReservationInfo;
+import modal.tickets.Flight;
+import modal.tickets.Passenger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -27,14 +28,14 @@ public class PassengerInfoPage {
         this.baseFunc = baseFunc;
     }
 
-    public void fillInPassengerInfo(ReservationInfo reservationInfo){
-        baseFunc.type(NAME_INPUT, reservationInfo.getFirstName());
-        baseFunc.type(SURNAME_INPUT, reservationInfo.getLastName());
-        baseFunc.type(DISCOUNT_INPUT, reservationInfo.getDiscount());
-        baseFunc.type(ADULTS_INPUT, reservationInfo.getPassengerCount());
-        baseFunc.type(CHILDREN_INPUT, reservationInfo.getChildCount());
-        baseFunc.type(BAGS_INPUT, reservationInfo.getBagsCount());
-        baseFunc.selectByText(FLIGHT_INPUT, reservationInfo.getFlightDate());
+    public void fillInPassengerInfo(Flight flight, Passenger passenger){
+        baseFunc.type(NAME_INPUT, passenger.getFirstName());
+        baseFunc.type(SURNAME_INPUT, passenger.getLastName());
+        baseFunc.type(DISCOUNT_INPUT, flight.getDiscount());
+        baseFunc.type(ADULTS_INPUT, flight.getPassengersCount());
+        baseFunc.type(CHILDREN_INPUT, flight.getChildCount());
+        baseFunc.type(BAGS_INPUT, flight.getLuggageCount());
+        baseFunc.selectByText(FLIGHT_INPUT, flight.getFlightDate());
     }
 
     public void clickGetPriceLink() {
@@ -42,7 +43,7 @@ public class PassengerInfoPage {
     }
 
     public String getAirport(int number) {
-        List<WebElement> airport = baseFunc.findElementsNumber(FLIGHT_INFO);
+        List<WebElement> airport = baseFunc.findElements(FLIGHT_INFO);
         return airport.get(number).getText();
     }
 

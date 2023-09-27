@@ -5,7 +5,7 @@ import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
 import modal.weather.WeatherResponse;
 import org.springframework.web.client.RestTemplate;
 
-public class WeatherRequesters {
+public class WeatherRequester {
     private final String URL = "http://qaguru.lv:8089/tickets/getWeather.php?id=";
 
     public WeatherResponse requestWeather(long id) throws JsonProcessingException {

@@ -34,7 +34,7 @@ public class Current {
     private double windGust;
 
     @JsonProperty("weather")
-    private ArrayList<Weather> weathers;
+    private List<Weather> weathers;
 
     public long getDt() {
         return dt;
@@ -162,7 +162,7 @@ public class Current {
         return this;
     }
 
-    public ArrayList<Weather> getWeathers() {
+    public List<Weather> getWeathers() {
         return weathers;
     }
 

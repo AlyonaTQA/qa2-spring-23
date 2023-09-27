@@ -15,6 +15,7 @@ public class BaseFunc {
     private WebDriver browser;
     private WebDriverWait wait;
     public BaseFunc() {
+        System.setProperty("webdriver.chrome.driver", "/Users/alyonakuropatkina/Downloads/x64/chromedriver");
         browser = new ChromeDriver();
         browser.manage().window().maximize();
 
@@ -65,6 +66,10 @@ public class BaseFunc {
 
     public void waitForElementCountToBeAtLeast(By locator, int minCount) {
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(locator, minCount));
+    }
+
+    public List<WebElement> waitForNumberOfElementsToBe(By locator, int count) {
+        return wait.until(ExpectedConditions.numberOfElementsToBe(locator, count));
     }
 }
 

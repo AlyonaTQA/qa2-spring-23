@@ -3,6 +3,7 @@ package modal.weather;
 import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class WeatherResponse {
     private double lat;
@@ -12,10 +13,10 @@ public class WeatherResponse {
     private int timezoneOffset;
     private Current current;
     @JsonProperty("minutely")
-    private ArrayList<Minutely> minutelyList;
-    private ArrayList<Hourly> hourly;
-    private ArrayList<Daily> daily;
-    private ArrayList<Alerts> alerts;
+    private List<Minutely> minutelyList;
+    private List<Hourly> hourly;
+    private List<Daily> daily;
+    private List<Alerts> alerts;
 
     public double getLat() {
         return lat;
@@ -62,7 +63,7 @@ public class WeatherResponse {
         return this;
     }
 
-    public ArrayList<Minutely> getMinutelyList() {
+    public List<Minutely> getMinutelyList() {
         return minutelyList;
     }
 
@@ -71,7 +72,7 @@ public class WeatherResponse {
         return this;
     }
 
-    public ArrayList<Hourly> getHourly() {
+    public List<Hourly> getHourly() {
         return hourly;
     }
 
@@ -80,7 +81,7 @@ public class WeatherResponse {
         return this;
     }
 
-    public ArrayList<Daily> getDaily() {
+    public List<Daily> getDaily() {
         return daily;
     }
 
@@ -89,7 +90,7 @@ public class WeatherResponse {
         return this;
     }
 
-    public ArrayList<Alerts> getAlerts() {
+    public List<Alerts> getAlerts() {
         return alerts;
     }
 

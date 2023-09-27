@@ -17,7 +17,7 @@ public class SeatSelectionPage {
         this.baseFunc = baseFunc;
     }
 
-    public void selectSeat(int seatNumber) {
+    public boolean selectSeat(int seatNumber) {
 
         baseFunc.waitForElementCountToBeAtLeast(SEAT, 15);
         List<WebElement> seats = baseFunc.findElements(SEAT);
@@ -31,6 +31,10 @@ public class SeatSelectionPage {
                 break;
             }
         }
+        return isSeatFound;
+    }
+
+    public void checkSeat (boolean isSeatFound, int seatNumber) {
         Assertions.assertTrue(isSeatFound, "Seat Nr. " + seatNumber + " is not found!");
     }
 
