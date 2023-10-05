@@ -22,11 +22,11 @@ public class TicketsTestsOnPages extends BaseSeleniumTests{
         PassengerInfoPage infoPage = new PassengerInfoPage(baseFunc);
         infoPage.fillInPassengerInfo(flight, passenger);
         infoPage.clickGetPriceLink();
-        Assertions.assertEquals(flight.getDeparture(), infoPage.getAirport(0), "Wrong Departure Airport!");
-        Assertions.assertEquals(flight.getArrival(), infoPage.getAirport(1), "Wrong Arrival Airport!");
+        Assertions.assertEquals(flight.getDeparture(), infoPage.getAirport(0, 5), "Wrong Departure Airport!");
+        Assertions.assertEquals(flight.getArrival(), infoPage.getAirport(1, 5), "Wrong Arrival Airport!");
         Assertions.assertEquals(passenger.getFirstName(), infoPage.getName().substring(0, infoPage.getName().length() -1));
-        Assertions.assertEquals(flight.getDeparture(), infoPage.getAirport(3), "Wrong Departure Airport!");
-        Assertions.assertEquals(flight.getArrival(), infoPage.getAirport(4), "Wrong Arrival Airport!");
+        Assertions.assertEquals(flight.getDeparture(), infoPage.getAirport(3, 5), "Wrong Departure Airport!");
+        Assertions.assertEquals(flight.getArrival(), infoPage.getAirport(4, 5), "Wrong Arrival Airport!");
         infoPage.clickBookButton();
 
         SeatSelectionPage seatSelectionPage = new SeatSelectionPage(baseFunc);

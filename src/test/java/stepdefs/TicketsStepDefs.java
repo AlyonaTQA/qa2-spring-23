@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import modal.tickets.Flight;
 import modal.tickets.Passenger;
 import modal.tickets.Reservation;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import pages.*;
@@ -66,8 +67,8 @@ public class TicketsStepDefs {
 
     @Then("selected airports appears on the passenger info page")
     public void check_selected_airports() {
-        Assertions.assertEquals(flight.getDeparture(), infoPage.getAirport(0), "Wrong departure airport!");
-        Assertions.assertEquals(flight.getArrival(), infoPage.getAirport(1), "Wrong arrival airport!");
+        Assertions.assertEquals(flight.getDeparture(), infoPage.getAirport(0, 2), "Wrong departure airport!");
+        Assertions.assertEquals(flight.getArrival(), infoPage.getAirport(1, 2), "Wrong arrival airport!");
     }
 
     @When("we are filling in passenger info")
@@ -82,8 +83,8 @@ public class TicketsStepDefs {
 
     @Then("airports and price appears in flight details")
     public void check_flight_details() {
-        Assertions.assertEquals(flight.getDeparture(), infoPage.getAirport(3), "Wrong Departure Airport!");
-        Assertions.assertEquals(flight.getArrival(), infoPage.getAirport(4), "Wrong Arrival Airport!");
+        Assertions.assertEquals(flight.getDeparture(), infoPage.getAirport(3, 5), "Wrong Departure Airport!");
+        Assertions.assertEquals(flight.getArrival(), infoPage.getAirport(4, 5), "Wrong Arrival Airport!");
 
         final By RESPONSE = By.id("response");
         String rawText = baseFunc.findElement(RESPONSE).getText();
@@ -144,7 +145,11 @@ public class TicketsStepDefs {
     @Then("all data are stored correctly")
     public void check_reservation_data() {
         Assertions.assertEquals(passenger.getLastName(), reservationFromApi.getSurname(), "Wrong Last name!");
+        Assertions.assertEquals(flight.getDiscount(), reservationFromApi.getDiscount(), "Wrong Discount!");
+        Assertions.assertEquals(flight.getPassengersCount(), reservationFromApi.getAdults(), "Wrong Passengers Count!");
+        Assertions.assertEquals(flight.getChildCount(), reservationFromApi.getChildren(), "Wrong Children Count!");
+        Assertions.assertEquals(flight.getLuggageCount(), reservationFromApi.getBugs(), "Wrong Bags Count!");
+        Assertions.assertEquals(Integer.parseInt(flight.getFlightDate().substring(0, 2)), reservationFromApi.getFlight(), "Wrong Flight Date!");
         Assertions.assertEquals(flight.getSeatNr(), reservationFromApi.getSeat(), "Wrong Seat Nr!");
-        //assertions
     }
 }

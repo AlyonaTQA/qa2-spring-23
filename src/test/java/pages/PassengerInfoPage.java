@@ -42,8 +42,8 @@ public class PassengerInfoPage {
         baseFunc.click(GET_PRICE_LINK);
     }
 
-    public String getAirport(int number) {
-        List<WebElement> airport = baseFunc.findElements(FLIGHT_INFO);
+    public String getAirport(int number, int elementsCount) {
+        List<WebElement> airport = baseFunc.waitForNumberOfElementsToBe(FLIGHT_INFO, elementsCount);
         return airport.get(number).getText();
     }
 
