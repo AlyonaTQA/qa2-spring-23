@@ -1,5 +1,5 @@
-import modal.tickets.Flight;
-import modal.tickets.Passenger;
+import model.tickets.Flight;
+import model.tickets.Passenger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pages.*;

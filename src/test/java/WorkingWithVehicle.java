@@ -1,7 +1,7 @@
-import modal.Airplane;
-import modal.Car;
-import modal.Route;
-import modal.Train;
+import model.Airplane;
+import model.Car;
+import model.Route;
+import model.Train;
 import org.junit.jupiter.api.Test;
 
 public class WorkingWithVehicle {

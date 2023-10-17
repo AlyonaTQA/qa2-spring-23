@@ -3,7 +3,7 @@ package requesters;
 import io.cucumber.core.internal.com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.core.internal.com.fasterxml.jackson.core.type.TypeReference;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
-import modal.tickets.Reservation;
+import model.tickets.Reservation;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;

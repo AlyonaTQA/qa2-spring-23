@@ -1,7 +1,7 @@
 package pages;
 
-import modal.tickets.Flight;
-import modal.tickets.Passenger;
+import model.tickets.Flight;
+import model.tickets.Passenger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 

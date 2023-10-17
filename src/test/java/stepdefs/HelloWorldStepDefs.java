@@ -1,14 +1,6 @@
 package stepdefs;
 
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import modal.weather.WeatherResponse;
-
-import java.io.File;
-import java.io.IOException;
 
 public class HelloWorldStepDefs {
     @When("we are printing {string} in console")

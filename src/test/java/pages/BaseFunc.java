@@ -1,5 +1,7 @@
 package pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,19 +16,24 @@ import java.util.List;
 public class BaseFunc {
     private WebDriver browser;
     private WebDriverWait wait;
+    private final Logger LOGGER = LogManager.getLogger(this.getClass());
+
     public BaseFunc() {
+        LOGGER.info("Open browser window");
         System.setProperty("webdriver.chrome.driver", "/Users/alyonakuropatkina/Downloads/x64/chromedriver");
         browser = new ChromeDriver();
+        LOGGER.info("Expanding browser window");
         browser.manage().window().maximize();
 
         wait = new WebDriverWait(browser, Duration.ofSeconds(5));
     }
 
     public void openUrl(String url) {
+        LOGGER.info("Open webpage: " + url);
         if (!url.startsWith("http://") && !url.startsWith("https://")) {
             url = "http://" + url;
         }
-       browser.get(url);
+        browser.get(url);
     }
 
     public WebElement findElement(By locator) {
@@ -60,6 +67,7 @@ public class BaseFunc {
         inputField.clear();
         inputField.sendKeys(text);
     }
+
     public void type(By locator, int text) {
         type(locator, String.valueOf(text));
     }

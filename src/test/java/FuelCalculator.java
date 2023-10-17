@@ -1,6 +1,6 @@
-import modal.Airplane;
-import modal.Car;
-import modal.Train;
+import model.Airplane;
+import model.Car;
+import model.Train;
 
 public class FuelCalculator {
     public void calculate(Car car, int length) {

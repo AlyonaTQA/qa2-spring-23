@@ -1,5 +1,5 @@
-import modal.Cat;
-import modal.Movie;
+import model.Cat;
+import model.Movie;
 import org.junit.jupiter.api.Test;
 
 public class HomeWork {
